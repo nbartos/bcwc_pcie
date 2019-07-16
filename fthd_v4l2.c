@@ -357,7 +357,7 @@ static int fthd_v4l2_ioctl_querycap(struct file *filp, void *priv,
 	struct fthd_private *dev_priv = video_drvdata(filp);
 
 	strcpy(cap->driver, "facetimehd");
-	strcpy(cap->card, "Apple Facetime HD");
+	strcpy(cap->card, "Spacetime");
 	snprintf(cap->bus_info, sizeof(cap->bus_info), "PCI:%s",
 		 pci_name(dev_priv->pdev));
 
@@ -723,7 +723,7 @@ int fthd_v4l2_register(struct fthd_private *dev_priv)
 	dev_priv->alloc_ctx = vb2_dma_sg_init_ctx(&dev_priv->pdev->dev);
 #endif
 	vdev->v4l2_dev = v4l2_dev;
-	strcpy(vdev->name, "Apple Facetime HD"); // XXX: Length?
+	strcpy(vdev->name, "Spacetime"); // XXX: Length?
 	vdev->vfl_dir = VFL_DIR_RX;
 	vdev->fops = &fthd_vdev_fops;
 	vdev->ioctl_ops = &fthd_ioctl_ops;
